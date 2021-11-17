@@ -1,20 +1,34 @@
 <?php
-/**
-* Plugin Name: Orchid
+/*
+    Plugin Name: Orchid
 */
 
-require_once (dirname(__FILE__), 'activate.php');
-require_once (dirname(__FILE__), 'uninstall.php');
+defined('ABSPATH') or die;
 
-register_activation_hook(__FILE__, 'orchid_activation');
-register_deactivation_hook(__FILE__, 'orchid_deactivation');
+class OrchidPlugin
+{
+    public function __construct() {
 
-function orchid_activation() {
+    }
 
+    public static function activated() {
+
+    }
+
+    public static function de_activated() {
+
+    }
+
+    public function register() {
+
+    }
 }
 
-function orchid_deactivation() {
+class_exists('OrchidPlugin') or die;
 
-}
+register_activation_hook(__FILE__, ['OrchidPlugin', 'activated']);
+register_deactivation_hook(__FILE__, ['OrchidPlugin', 'de_eactivated']);
+
+$plugin = new OrchidPludin();
 
 ?>
